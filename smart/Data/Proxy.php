@@ -26,13 +26,15 @@ class Proxy extends \PDO {
     public function __construct(array $link) {
         list ($dns, $usr, $pwd) = $link;
 
+        Start::setTimeZone();
+
         /**
          * You can also use ini_set function (only for PHP version below 5.3):
          *
          * @author: http://stackoverflow.com/questions/2184513/php-change-the-maximum-upload-file-size
          */
-        ini_set('post_max_size', '64M');
-        ini_set('upload_max_filesize', '64M');
+//        ini_set('post_max_size', '64M');
+//        ini_set('upload_max_filesize', '64M');
 
         try {
 			parent::__construct( $dns, $usr, $pwd );
